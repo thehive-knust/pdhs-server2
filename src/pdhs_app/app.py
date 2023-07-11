@@ -53,7 +53,7 @@ def create_app(*args, **kwargs):
 
     @app.route('/')
     def hello():
-        return "Hello from root of app /"
+        return "Welcome to SoftDoc"
 
     # Register Blueprints
     app.register_blueprint(auth_bp, url_prefix="/auth")
