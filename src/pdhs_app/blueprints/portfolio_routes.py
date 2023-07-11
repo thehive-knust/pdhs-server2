@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, render_template
-from src.pdhs_app.models.users.user import User  
-from src.pdhs_app.models.portfolios.portfolio import Portfolio
+from pdhs_app.models.users.user import User  
+from pdhs_app.models.portfolios.portfolio import Portfolio
 
 bp = Blueprint('portfolios', __name__, url_prefix='/portfolios')
 
