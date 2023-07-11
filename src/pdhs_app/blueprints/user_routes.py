@@ -1,15 +1,15 @@
 from flask import Blueprint, request, jsonify, render_template
-from src.pdhs_app.models.users.user import User  # src.
-import src.pdhs_app.models.users.errors as UserErrors  # src.
-import src.pdhs_app.models.users.decorators as user_decorators  # src.
-import src.pdhs_app.models.users.constants as UserConstants
-from src.pdhs_app.models.documents.document import Document
-from src.pdhs_app.models.departments.department import Department
-from src.pdhs_app.blueprints.document_routes import inbox as get_new_docs
+from pdhs_app.models.users.user import User  # 
+import pdhs_app.models.users.errors as UserErrors  # 
+import pdhs_app.models.users.decorators as user_decorators  # 
+import pdhs_app.models.users.constants as UserConstants
+from pdhs_app.models.documents.document import Document
+from pdhs_app.models.departments.department import Department
+from pdhs_app.blueprints.document_routes import inbox as get_new_docs
 from werkzeug.utils import secure_filename
-from src.middleware.cloud_upload import upload_file
-# from src.storage.cloud_storage import delete_blob, upload_blob
-from src.pdhs_app.models.approvals.approval import Approval
+from middleware.cloud_upload import upload_file
+# from storage.cloud_storage import delete_blob, upload_blob
+from pdhs_app.models.approvals.approval import Approval
 
 bp = Blueprint('users', __name__, url_prefix='/users')
 
