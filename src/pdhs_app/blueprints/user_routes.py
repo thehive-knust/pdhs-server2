@@ -46,17 +46,17 @@ def get_user_by_email(email):
 @bp.route('/update/<int:_id>', methods=['POST', 'GET'])
 def update_user(_id):
     if request.method == 'POST':
-        user_id = request.json.get('id', None)                  #   request.form['id'] if request.form['id'] else 
-        first_name = request.json.get('first_name', None)   #   request.form['first_name'] if request.form['first_name'] else 
-        last_name = request.json.get('last_name', None)     #   request.form['last_name'] if request.form['last_name'] else 
-        email = request.json.get('email', None)             #   request.form['email'] if request.form['email'] else 
-        contact = request.json.get('contact', None)         #   request.form['contact'] if request.form['contact'] else 
-        password = request.json.get('password', None)       #   request.form['password'] if request.form['password'] else 
-        user_img = request.files.get('user_img', None)      #   request.files['user_img'] if request.files['user_img'] else 
-        portfolio_id = request.json.get('portfolio_id', None)   #   request.form['portfolio_id'] if request.form['portfolio_id'] else 
-        department_id = request.json.get('department_id', None) #   request.form['department_id'] if request.form['department_id'] else 
-        faculty_id = request.json.get('faculty_id', None)   #   request.form['faculty_id'] if request.form['faculty_id'] else 
-        college_id = request.json.get('college_id', None)   #   request.form['college_id'] if request.form['college_id']  else 
+        user_id = request.form['id'] if request.form['id'] else request.json.get('id', None)                  #   
+        first_name = request.form['first_name'] if request.form['first_name'] else request.json.get('first_name', None)   #    
+        last_name = request.form['last_name'] if request.form['last_name'] else  request.json.get('last_name', None)     #   
+        email = request.form['email'] if request.form['email'] else request.json.get('email', None)             #    
+        contact = request.form['contact'] if request.form['contact'] else request.json.get('contact', None)         #    
+        password = request.form['password'] if request.form['password'] else request.json.get('password', None)       #   
+        user_img = request.files['user_img'] if request.files['user_img'] else request.files.get('user_img', None)      #   
+        portfolio_id = request.form['portfolio_id'] if request.form['portfolio_id'] else request.json.get('portfolio_id', None)   #   
+        department_id = request.form['department_id'] if request.form['department_id'] else request.json.get('department_id', None) #   
+        faculty_id = request.form['faculty_id'] if request.form['faculty_id'] else request.json.get('faculty_id', None)   #   
+        college_id = request.form['college_id'] if request.form['college_id']  else request.json.get('college_id', None)   #   
         
         error_msg = None
  
