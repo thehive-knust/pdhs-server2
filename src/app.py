@@ -1,8 +1,8 @@
 import os
 from flask import Flask, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
-from src.database.db import db, migrate
-from src.middleware.security import jwt
+from database.db import db, migrate
+from middleware.security import jwt
 from flask_cors import CORS
 
 # import Blueprints
