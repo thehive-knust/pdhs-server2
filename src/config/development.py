@@ -26,3 +26,10 @@ DATABASE_URI = "sqlite:///{instance_path}/{path}".format(
     instance_path=os.getenv('INSTANCE_PATH'),
     path=os.getenv('SQL_LITE_PATH')
 )
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username=os.getenv('DB_USERNAME'),
+    password=os.getenv('DB_PASSWORD'),
+    hostname=os.getenv('DB_HOSTNAME'),
+    databasename=os.getenv('DB_NAME'),
+)
