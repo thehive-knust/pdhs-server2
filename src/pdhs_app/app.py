@@ -1,19 +1,19 @@
 import os
 from flask import Flask
-from src.database.db import db, migrate
-from src.middleware.security import jwt
+from database.db import db, migrate
+from middleware.security import jwt
 from flask_cors import CORS
 
 # import Blueprints
-from src.middleware.auth import bp as auth_bp
-from src.pdhs_app.blueprints.user_routes import bp as user_bp
-from src.pdhs_app.blueprints.document_routes import bp as document_bp
-from src.pdhs_app.blueprints.department_routes import bp as department_bp
-from src.pdhs_app.blueprints.college_routes import bp as college_bp
-from src.pdhs_app.blueprints.faculty_routes import bp as faculty_bp
-from src.pdhs_app.blueprints.comment_routes import bp as comment_bp
-from src.pdhs_app.blueprints.portfolio_routes import bp as portfolio_bp
-from src.pdhs_app.blueprints.approval_routes import bp as approval_bp
+from middleware.auth import bp as auth_bp
+from pdhs_app.blueprints.user_routes import bp as user_bp
+from pdhs_app.blueprints.document_routes import bp as document_bp
+from pdhs_app.blueprints.department_routes import bp as department_bp
+from pdhs_app.blueprints.college_routes import bp as college_bp
+from pdhs_app.blueprints.faculty_routes import bp as faculty_bp
+from pdhs_app.blueprints.comment_routes import bp as comment_bp
+from pdhs_app.blueprints.portfolio_routes import bp as portfolio_bp
+from pdhs_app.blueprints.approval_routes import bp as approval_bp
 
 
 def create_app(*args, **kwargs):
@@ -30,7 +30,7 @@ def create_app(*args, **kwargs):
     app = Flask(__name__, instance_relative_config=True)
 
     app.config['ENV'] = env
-    app.config.from_object('src.config.%s' % env)
+    app.config.from_object('config.%s' % env)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = app.config['DATABASE_URI']
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
