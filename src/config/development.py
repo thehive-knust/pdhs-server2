@@ -1,20 +1,19 @@
 """Development configuration."""
 
-from os import environ
+import os #import os
 from datetime import timedelta
 
-# from dotenv import load_dotenv
-# basedir = path.abspath(path.dirname(__file__))
-# load_dotenv(path.join(basedir, '.env'))
-# load_dotenv()
+from dotenv import load_dotenv
+project_folder = os.path.expanduser('~/pdhs-server')  # adjust as appropriate
+load_dotenv(os.path.join(project_folder, '.env'))
 
 # defaults
-SECRET_KEY = environ.get('SECRET_KEY')
-JWT_SECRET_KEY = environ.get('JWT_SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
+JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
 JWT_ACCESS_TOKEN_EXPIRES = timedelta(
-    hours=int(environ.get('JWT_ACCESS_TOKEN_EXPIRES')))
+    hours=int(os.getenv('JWT_ACCESS_TOKEN_EXPIRES')))
 JWT_REFRESH_TOKEN_EXPIRES = timedelta(
-    days=int(environ.get('JWT_REFRESH_TOKEN_EXPIRES')))
+    days=int(os.getenv('JWT_REFRESH_TOKEN_EXPIRES')))
 
 # Others
 FLASK_ENV = 'development'
@@ -24,6 +23,6 @@ SESSION_COOKIE_SECURE = False
 
 # Database
 DATABASE_URI = "sqlite:///{instance_path}/{path}".format(
-    instance_path=environ.get('INSTANCE_PATH'),
-    path=environ.get('SQL_LITE_PATH')
+    instance_path=os.getenv('INSTANCE_PATH'),
+    path=os.getenv('SQL_LITE_PATH')
 )
