@@ -57,7 +57,23 @@ def create_user():
         department_id = request.form['department_id'] if request.form['department_id'] else request.json.get('department_id', None) #   
         faculty_id = request.form['faculty_id'] if request.form['faculty_id'] else request.json.get('faculty_id', None)   #   
         college_id = request.form['college_id'] if request.form['college_id']  else request.json.get('college_id', None)   #   
-    
+
+        img_url = ""
+        if user_img:
+            if _allowed_file(user_img.filename):
+                filename = secure_filename(user_img.filename)
+                
+                try:
+                    user_img_url = upload_file(user_img)
+                except Exception as e:
+                    print('Error uploading file: %s' % e)
+                    return jsonify(msg='Error uploading image'), 500
+                
+                if user_img_url is not None:
+                    img_url = user_img_url
+            else:
+                return jsonify(msg="Image File type not supported"), 500
+                
         new_user = User(
             id=user_id, 
             first_name=first_name, 
@@ -65,7 +81,7 @@ def create_user():
             email=email, 
             password=password, 
             contact=contact, 
-            user_img=user_img, 
+            img_url=img_url, 
             portfolio_id=portfolio_id, 
             college_id=college_id, 
             faculty_id=faculty_id, 
