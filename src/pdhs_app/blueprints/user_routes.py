@@ -58,7 +58,7 @@ def create_user():
         faculty_id = request.form['faculty_id'] if request.form['faculty_id'] else request.json.get('faculty_id', None)   #   
         college_id = request.form['college_id'] if request.form['college_id']  else request.json.get('college_id', None)   #   
     
-        new_user = User(user_id, first_name, last_name, email, password, contact, user_img, portfolio_id, college_id, faculty_id, department_id).save_to_db()
+        new_user = User.register_user(user_id, first_name, last_name, email, password, contact, user_img, portfolio_id, college_id, faculty_id, department_id)
         return jsonify(msg="User successfully created")
     return render_template("users/signup.html")
 
