@@ -34,8 +34,9 @@ env = create_app(env='development')
 app.config['ENV'] = env
 app.config.from_object('config.%s' % env)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = app.config['DATABASE_URI']
+app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI'] #DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 app.config['JSON_SORT_KEYS'] = False
 # ensure the instance folder exists
 try:
@@ -68,8 +69,8 @@ app.register_blueprint(faculty_bp)
 app.register_blueprint(portfolio_bp)
 app.register_blueprint(approval_bp)
 
-#with app.app_context():
+with app.app_context():
     # Reset Database
-    #db.drop_all()   # Comment out if you want to use flask_migrate
-    #db.create_all()  # Comment out if you want to use flask_migrate
+    db.drop_all()   # Comment out if you want to use flask_migrate
+    db.create_all()  # Comment out if you want to use flask_migrate
 
