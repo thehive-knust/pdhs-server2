@@ -1,4 +1,4 @@
-from src.database.db import db
+from database.db import db
 
 
 class College(db.Model):
