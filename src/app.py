@@ -30,7 +30,7 @@ def create_app(*args, **kwargs):
 
 # create and configure the app
 app = Flask(__name__, instance_relative_config=True)
-env = create_app(env='production')
+env = create_app(env='development')
 app.config['ENV'] = env
 app.config.from_object('config.%s' % env)
 
