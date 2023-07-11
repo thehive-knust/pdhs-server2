@@ -1,15 +1,15 @@
 from datetime import datetime, timezone
 from flask import (Blueprint, request, jsonify, render_template)
 from flask_jwt_extended import (create_access_token, create_refresh_token, get_jwt_identity, get_jwt, jwt_required, current_user)
-from src.middleware.security import jwt
+from middleware.security import jwt
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
-from src.middleware.cloud_upload import upload_file
-# from src.storage.cloud_storage import delete_blob, upload_blob
-from src.database import db
-from src.pdhs_app.models.users.user import User
-from src.pdhs_app.models.faculties.faculty import Faculty
-from src.pdhs_app.models.departments.department import Department
+from middleware.cloud_upload import upload_file
+# from storage.cloud_storage import delete_blob, upload_blob
+from database import db
+from pdhs_app.models.users.user import User
+from pdhs_app.models.faculties.faculty import Faculty
+from pdhs_app.models.departments.department import Department
 from .tokens import TokenBlocklist
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
