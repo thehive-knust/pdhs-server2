@@ -1,10 +1,10 @@
-from src.database.db import db
-from src.middleware.utils import Utils
-import src.pdhs_app.models.users.errors as UserErrors
+from database.db import db
+from middleware.utils import Utils
+import pdhs_app.models.users.errors as UserErrors
 from datetime import datetime
-# from src.pdhs_app.models.departments.department import Department
-# from src.pdhs_app.models.faculties.faculty import Faculty
-# from src.pdhs_app.models.colleges.college import College
+# from pdhs_app.models.departments.department import Department
+# from pdhs_app.models.faculties.faculty import Faculty
+# from pdhs_app.models.colleges.college import College
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
