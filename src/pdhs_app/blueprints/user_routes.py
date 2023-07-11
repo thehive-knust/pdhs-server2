@@ -65,7 +65,7 @@ def update_user(_id):
             if user is None:
                 new_user = User(user_id, first_name, last_name, email,
                         password, portfolio_id, department_id).save_to_db()
-                return jsonify(msg="User successfully updated")
+                user = User.find_by_id(user_id)
         except Exception as e:
                 print('Error finding user: %s' % e)
                 return jsonify(msg="Unauthorized request"), 401
