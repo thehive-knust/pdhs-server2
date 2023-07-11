@@ -81,7 +81,7 @@ def create_user():
             email=email, 
             password=password, 
             contact=contact, 
-            img_url=img_url, 
+            # img_url=img_url, 
             portfolio_id=portfolio_id, 
             college_id=college_id, 
             faculty_id=faculty_id, 
