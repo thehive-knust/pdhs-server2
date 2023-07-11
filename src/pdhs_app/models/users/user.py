@@ -85,7 +85,7 @@ class User(db.Model):
         return user
 
     @staticmethod
-    def register_user(user_id, first_name, last_name, email, password, portfolio_id, department_id):
+    def register_user(user_id, first_name, last_name, email, password, contact, user_img, portfolio_id, college_id, faculty_id, department_id):
         """
         This registers a user using user_id, first_name, last_name, e-mail and password.
         :param user_id: The user's ID (ie. student ID or staff ID)
@@ -104,8 +104,7 @@ class User(db.Model):
             raise UserErrors.UserAlreadyRegisteredError("User already exists.")
 
         # add the new user to the database
-        new_user = User(user_id, first_name, last_name, email,
-                        password, portfolio_id, department_id).save_to_db()
+        new_user = User(user_id, first_name, last_name, email, password, contact, user_img, portfolio_id, college_id, faculty_id, department_id).save_to_db()
         return True
 
     
