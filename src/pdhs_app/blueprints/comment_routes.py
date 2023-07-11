@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from src.pdhs_app.models.users.user import User  # src.
-from src.pdhs_app.models.comments.comment import Comment
+from pdhs_app.models.users.user import User  # 
+from pdhs_app.models.comments.comment import Comment
 
 bp = Blueprint('comments', __name__, url_prefix='/comments')
 
