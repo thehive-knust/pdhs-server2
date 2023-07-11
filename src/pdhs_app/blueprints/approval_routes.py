@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
-from src.pdhs_app.models.users.user import User  # src.
-from src.pdhs_app.models.approvals.approval import Approval
-from src.pdhs_app.models.approvals import errors as ApprovalErrors
-from src.pdhs_app.models.documents.document import Document
+from pdhs_app.models.users.user import User  # 
+from pdhs_app.models.approvals.approval import Approval
+from pdhs_app.models.approvals import errors as ApprovalErrors
+from pdhs_app.models.documents.document import Document
 from datetime import datetime
 
 bp = Blueprint('approvals', __name__, url_prefix='/approvals')
