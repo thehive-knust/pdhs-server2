@@ -1,5 +1,5 @@
-from src.database.db import db
-from src.pdhs_app.models.approvals import errors as ApprovalErrors
+from database.db import db
+from pdhs_app.models.approvals import errors as ApprovalErrors
 
 class Approval(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
