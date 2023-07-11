@@ -12,9 +12,9 @@ def all():
         portfolios = Portfolio.query.all()
     except:
         error_msg = 'Error occured retrieving portfolios'
+        return jsonify(msg=error_msg), 404
     if portfolios is None:
         error_msg = 'No portfolios available'
-    if error_msg is not None:
         return jsonify(msg=error_msg), 404
     result = [portfolio.to_json() for portfolio in portfolios]
     return jsonify(portfolios=result), 200
