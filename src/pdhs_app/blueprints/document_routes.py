@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify, current_app, render_template
-from src.pdhs_app.models.users.user import User  # src.
-from src.pdhs_app.models.documents.document import Document
-from src.pdhs_app.models.approvals.approval import Approval
-from src.pdhs_app.models.portfolios.portfolio import Portfolio
+from pdhs_app.models.users.user import User  # 
+from pdhs_app.models.documents.document import Document
+from pdhs_app.models.approvals.approval import Approval
+from pdhs_app.models.portfolios.portfolio import Portfolio
 from werkzeug.utils import secure_filename
-# from src.storage.cloud_storage import delete_blob, upload_blob    # This was used for google cloud services
-from src.middleware.cloud_upload import upload_file     # This is being used for cloudinary sevices
+# from storage.cloud_storage import delete_blob, upload_blob    # This was used for google cloud services
+from middleware.cloud_upload import upload_file     # This is being used for cloudinary sevices
 import os, json
 
 bp = Blueprint('documents', __name__, url_prefix='/documents')
