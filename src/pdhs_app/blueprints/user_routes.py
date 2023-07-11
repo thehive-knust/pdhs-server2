@@ -82,9 +82,9 @@ def create_user():
             password=password, 
             contact=contact, 
             # img_url=img_url, 
-            portfolio_id=portfolio_id, 
+            portfolio_id=int(portfolio_id), 
             college_id=college_id, 
-            faculty_id=faculty_id, 
+            faculty_id=int(faculty_id), 
             department_id=department_id
         )
         try:
