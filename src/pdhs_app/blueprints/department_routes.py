@@ -1,12 +1,12 @@
 from flask import Blueprint, request, jsonify, render_template
-from src.pdhs_app.models.users.user import User  # src.
-from src.pdhs_app.models.departments.department import Department
-from src.pdhs_app.models.portfolios.portfolio import Portfolio
-from src.pdhs_app.models.colleges.college import College
-from src.pdhs_app.models.faculties.faculty import Faculty
+from pdhs_app.models.users.user import User  # 
+from pdhs_app.models.departments.department import Department
+from pdhs_app.models.portfolios.portfolio import Portfolio
+from pdhs_app.models.colleges.college import College
+from pdhs_app.models.faculties.faculty import Faculty
 
 from sqlalchemy import null
-from src.database.db import db
+from database.db import db
 
 bp = Blueprint('departments', __name__, url_prefix='/departments')
 
