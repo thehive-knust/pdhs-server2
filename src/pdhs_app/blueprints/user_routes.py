@@ -75,7 +75,7 @@ def create_user():
                 return jsonify(msg="Image File type not supported"), 500
                 
         new_user = User(
-            id=user_id, 
+            id=int(user_id), 
             first_name=first_name, 
             last_name=last_name, 
             email=email, 
