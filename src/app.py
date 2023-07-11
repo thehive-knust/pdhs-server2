@@ -71,6 +71,6 @@ app.register_blueprint(approval_bp)
 
 with app.app_context():
     # Reset Database
-    # db.drop_all()   # Comment out if you want to use flask_migrate
+    db.drop_all()   # Comment out if you want to use flask_migrate
     db.create_all()  # Comment out if you want to use flask_migrate
 
