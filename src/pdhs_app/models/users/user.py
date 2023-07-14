@@ -37,7 +37,7 @@ class User(db.Model):
 
     @classmethod
     def find_by_id(cls, user_id):
-        return cls.query.get(user_id)
+        return cls.query.get(id=user_id)
 
     def save_to_db(self):
         db.session.add(self)
@@ -72,7 +72,7 @@ class User(db.Model):
         """
         # checking if user actually exists
         try:
-            user = User.query.filter_by(user_id=user_id).first()
+            user = User.query.filter_by(id=user_id).first()
         except:
             user = None
         if user:
