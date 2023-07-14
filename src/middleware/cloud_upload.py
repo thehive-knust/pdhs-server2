@@ -1,13 +1,13 @@
-from os import environ
+import os
 from cloudinary.uploader import upload
 import cloudinary
 from cloudinary.utils import cloudinary_url
 
 
 cloudinary.config(
-    cloud_name =  environ.get('CLOUD_NAME'),   
-    api_key = environ.get('API_KEY'),   
-    api_secret = environ.get('API_SECRET') 
+    cloud_name =  os.getenv('CLOUD_NAME'),   
+    api_key = os.getenv('API_KEY'),   
+    api_secret = os.getenv('API_SECRET') 
 )
 
 def upload_file(file_to_upload):
