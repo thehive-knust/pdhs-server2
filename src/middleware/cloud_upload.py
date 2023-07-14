@@ -1,7 +1,10 @@
 import os
-from cloudinary.uploader import upload
 import cloudinary
-from cloudinary.utils import cloudinary_url
+from cloudinary import uploader
+# from cloudinary.uploader import upload
+# from cloudinary.utils import cloudinary_url
+
+
 from dotenv import load_dotenv
 
 project_folder = os.path.expanduser('~/pdhs-server')  # adjust as appropriate
@@ -16,7 +19,7 @@ cloudinary.config(
 def upload_file(file_to_upload):
   if file_to_upload:
     try:
-      upload_result = upload(file_to_upload)
+      upload_result = uploader.upload(file_to_upload)
     except:
       return {"msg":"Error uploading file"}
     
