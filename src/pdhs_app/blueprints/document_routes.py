@@ -89,15 +89,18 @@ def upload():
                 try:
                     document_url = upload_file(doc_file) #upload_blob(doc_file.stream, filename)
                     print('>>>>>>>> document_url', document_url)
-                    if document_url is not None:
+                    if document_url.msg is not None:
+                        raise Exception("This is an example exception.")
+                    else:
                         new_document.file = document_url
                 except Exception as e:
                     print('>>>>>>>> Error uploading file: %s' % e)
+                    return jsonify(msg='Error saving document'), 500
                 try:
                     doc_id = new_document.save_to_db()
                 except:
                     print('>>>>>>>> WAS HERE (~)')
-                    return jsonify(msg='Error saving document', doc=new_document), 500
+                    return jsonify(msg='Error saving document'), 500
         else:
             return jsonify(msg="File type not supported"), 201
 
