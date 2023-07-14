@@ -179,7 +179,7 @@ def login():
         _id = request.json.get('id', None) #request.form['id'] if request.form['id'] else 
         password = request.json.get('password', None) # request.form['password'] if request.form['password'] else 
         try:
-            user = User.find_by_id(id=int(_id))
+            user = User.find_by_id(int(_id))
         except:
             return jsonify(message="User Don't Exist")
         correct_password = check_password_hash(user.password, password)
