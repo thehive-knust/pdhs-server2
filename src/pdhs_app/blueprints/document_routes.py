@@ -89,8 +89,8 @@ def upload():
                 try:
                     document_url = upload_file(doc_file) #upload_blob(doc_file.stream, filename)
                     print('>>>>>>>> document_url', document_url)
-                    if document_url.msg is not None:
-                        raise Exception("This is an example exception.")
+                    if document_url['msg'] is not None:
+                        raise Exception("Error exception.")
                     else:
                         new_document.file = document_url
                 except Exception as e:
