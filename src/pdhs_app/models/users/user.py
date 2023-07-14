@@ -37,7 +37,7 @@ class User(db.Model):
 
     @classmethod
     def find_by_id(cls, user_id):
-        return cls.query.get(id=user_id)
+        return cls.query.get(user_id)
 
     def save_to_db(self):
         db.session.add(self)
